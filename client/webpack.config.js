@@ -18,12 +18,46 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: 'index.html',
+        chunks: ['main'],
+      }),
+      new WebpackPwaManifest({
+        name: 'My Ten-Year Bucket List',
+        short_name: 'Bucket List',
+        description: 'A list of places I want to vist, things I want to do before menopause',
+        background_color: '#028CB3',
+        theme_color: '#F7E3CD',
+        start_url: '/',
+        publicPath: '/',
+        display: 'standalone',
+        icons: [
+          {
+            src: path.resolve('client/src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            purpose: 'any maskable',
+          },
+        ],
+      })
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test:/\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        },
       ],
     },
   };
