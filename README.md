@@ -25,9 +25,7 @@ Those commands will create a Dist folder in the Client folder, once you've ran a
 ## Links
 
 - Github Repository: [Salome's PWA](https://github.com/Saiishago/My_PWA_Text_Editor)
-- Heroku Deployed App: [Salome's Deployed PWA]
-
-## Screenshots
+- Heroku Deployed App: [https://lit-shelf-06490-15a1e168833c.herokuapp.com]
 
 ### Author
 
